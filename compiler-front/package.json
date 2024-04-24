@@ -2,6 +2,7 @@
   "name": "exp02",
   "version": "0.0.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,8 +20,7 @@
     "vis-network": "^9.1.8",
     "vis-util": "^5.0.5",
     "vue": "^3.3.2",
-    "electron": "^27.0.0",
-    "electron-builder": "^24.6.4"
+    "vue-json-pretty": "^2.3.0"
   },
   "devDependencies": {
     "element-plus": "^2.4.0",

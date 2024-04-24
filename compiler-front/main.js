@@ -13,7 +13,7 @@ const createWindow = () => {
         height: 1200,
         webPreferences: {
             // 导入预加载脚本
-            preload: path.join(__dirname, 'preload.js'),
+            // preload: path.join(__dirname, 'preload.js'),
             sandbox: false,
             nodeIntegration: true, //开启true这一步很重要,目的是为了vue文件中可以引入node和electron相关的API
             contextIsolation: false, // 可以使用require方法
@@ -22,7 +22,7 @@ const createWindow = () => {
     })
 
     // win.loadFile('index.html');
-    win.loadURL("http://localhost:5174")
+    win.loadURL("http://localhost:5173")
     win.webContents.openDevTools();
 }
 

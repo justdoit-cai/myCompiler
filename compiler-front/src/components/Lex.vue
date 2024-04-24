@@ -2,15 +2,17 @@
     <el-container>
         <el-aside width="30%">
             <el-upload
-                class="upload-demo"
-                drag
-                action=""
-                :auto-upload="false"
-                :limit="1"
-                :on-change="handleChangeFile"
-                :on-remove="handleRemoveFile"
+                    class="upload-demo"
+                    drag
+                    action=""
+                    :auto-upload="false"
+                    :limit="1"
+                    :on-change="handleChangeFile"
+                    :on-remove="handleRemoveFile"
             >
-                <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+                <el-icon class="el-icon--upload">
+                    <upload-filled/>
+                </el-icon>
                 <div class="el-upload__text">
                     Drop file here or <em>click to upload</em>
                 </div>
@@ -43,7 +45,7 @@
                         </el-button>
                     </el-col>
                     <el-col :span="4">
-                        <el-button color="#626aef"  style="width: 150px;" @click="handleCompileCode">
+                        <el-button color="#626aef" style="width: 150px;" @click="handleCompileCode">
                             编译词法分析程序
                         </el-button>
                     </el-col>
@@ -54,22 +56,7 @@
                     </el-col>
                 </el-row>
             </el-header>
-                <template v-show="showNFA" v-for="(value, key, index) in output">
-                    <el-card>
-                        {{ key }}
-                        <el-divider/>
-                        <div>
-<!--                            <el-row>-->
-<!--                                <span>{{ message }}</span>-->
-<!--                            </el-row>-->
-<!--                            <br>-->
-                            <div :id="key" style="width: 100%; height: 600px; border: 2px; background-color: #fff;">
-                            </div>
-                        </div>
-                    </el-card>
-                    <br>
-                </template>
-            <template v-show="showDFA" v-for="(value, key, index) in output">
+            <div v-show="showGraph" v-for="(value, key, index) in output">
                 <el-card>
                     {{ key }}
                     <el-divider/>
@@ -83,49 +70,37 @@
                     </div>
                 </el-card>
                 <br>
-            </template>
-            <template v-show="showSimplifiedDFA" v-for="(value, key, index) in output">
+            </div>
+            <div v-show="showCode">
                 <el-card>
-                    {{ key }}
-                    <el-divider/>
-                    <div>
-                        <!--                            <el-row>-->
-                        <!--                                <span>{{ message }}</span>-->
-                        <!--                            </el-row>-->
-                        <!--                            <br>-->
-                        <div :id="key" style="width: 100%; height: 600px; border: 2px; background-color: #fff;">
-                        </div>
-                    </div>
+                    code1111111111111111
                 </el-card>
                 <br>
-            </template>
-            <template v-show="showCode">
-                <el-card>
-                </el-card>
-                <br>
-            </template>
+            </div>
         </el-main>
     </el-container>
 </template>
 
 <script setup lang="ts">
 import {onMounted, ref} from 'vue'
+
 const fs = require('fs');
 import {ElMessage, genFileId} from 'element-plus'
 import type {UploadInstance, UploadProps, UploadRawFile} from 'element-plus'
-import { UploadFilled } from '@element-plus/icons-vue'
+import {UploadFilled} from '@element-plus/icons-vue'
+
 const upload = ref<UploadInstance>()
 import {Network} from "vis-network";
 import {DataSet} from "vis-data/peer/umd/vis-data.min";
+
 const inputLex = ref(null);
 const inputLexPath = ref(null)
 const output = ref(null)
-const showNFA = ref(false)
-const showDFA = ref(false)
-const showSimplifiedDFA = ref(false)
+const showGraph = ref(false)
 const showCode = ref(false)
 // 测试数据
-output.value = JSON.parse(fs.readFileSync("D:\\Project\\cproject\\cpproject\\test\\tiny.out").toString())
+output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_lex.out").toString())
+
 function handleChangeFile(file) {
     console.log("handleChangeFile")
     console.log(file.raw.path)
@@ -140,6 +115,7 @@ function handleChangeFile(file) {
         })
     })
 }
+
 function handleRemoveFile() {
     console.log("handleRemoveFile")
     inputLex.value = ""
@@ -149,12 +125,12 @@ function handleRemoveFile() {
         type: 'success',
     })
 }
+
 function handleNFA() {
-    showNFA.value = true;
-    showDFA.value = false;
-    showSimplifiedDFA.value = false;
+    showGraph.value = true;
     showCode.value = false;
     for (let key in output.value) {
+        console.log(key)
         let obj = output.value[key]["re2nfa"];
         let start = obj['start'];
         let end = obj['end'];
@@ -185,15 +161,14 @@ function handleNFA() {
         // 初始化关系图
         var network = new Network(container, visData, options);
     }
+    console.log("finish handle nfa")
 }
 
 function handleDFA() {
-    showDFA.value = true;
-    showNFA.value = false;
-    showSimplifiedDFA.value = false;
+    showGraph.value = true;
     showCode.value = false;
     for (let key in output.value) {
-        let obj =  output.value[key]["nfa2dfa"];
+        let obj = output.value[key]["nfa2dfa"];
         let start = obj['start'];
         let end = obj['end']; // DFA的end是数组
         let edgeList = obj["edgeList"];
@@ -227,17 +202,58 @@ function handleDFA() {
         // 初始化关系图
         var network = new Network(container, visData, options);
     }
+    console.log("finish handle dfa")
+    console.log(showGraph.value)
+
 }
 
 function handleSimplifyDFA() {
-    showSimplifiedDFA.value = true;
-    showDFA.value = false;
-    showNFA.value = false;
+    showGraph.value = true;
     showCode.value = false;
+    for (let key in output.value) {
+        let obj = output.value[key]["simplifiedDfa"];
+
+        let start = obj['start'];
+        let end = obj['end'];
+
+        let edgeList = obj['edgeList'];
+
+        let nodeList = [];
+        let s = new Set();
+        for (let i in edgeList) {
+            s.add(edgeList[i].from);
+            s.add(edgeList[i].to);
+        }
+        for (let i of s.values()) { // 注意这里set遍历的方式
+            let node = {
+                id: i,
+                label: i.toString()
+            }
+            nodeList.push(node);
+        }
+        let newEdgeList = [];
+        edgeList.map((item, index) => {
+            newEdgeList.push(Object.assign({}, item, {"arrows": "to"}));
+        });
+        let visNodeList = new DataSet(nodeList);
+        let visEdgeList = new DataSet(newEdgeList);
+
+        // 获取容器
+        var container = document.getElementById(key);
+        // 将数据赋值给vis 数据格式化器
+        var visData = {
+            nodes: visNodeList,
+            edges: visEdgeList
+        };
+        var options = {};
+        // 初始化关系图
+        var network = new Network(container, visData, options);
+    }
 }
 
 function handleOutputCode() {
-
+    showCode.value = true;
+    showGraph.value = false;
 }
 
 function handleCompileCode() {
@@ -247,9 +263,11 @@ function handleCompileCode() {
 function handleExecCode() {
 
 }
+
 function handleCompileLex() {
 
 }
+
 onMounted(() => {
     console.log("onMounted");
 })
