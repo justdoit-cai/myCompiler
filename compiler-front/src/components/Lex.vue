@@ -99,7 +99,7 @@ const output = ref(null)
 const showGraph = ref(false)
 const showCode = ref(false)
 // 测试数据
-output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_lex.out").toString())
+output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_re.out").toString())
 
 function handleChangeFile(file) {
     console.log("handleChangeFile")
