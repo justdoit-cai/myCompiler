@@ -99,7 +99,7 @@ const output = ref(null)
 const showGraph = ref(false)
 const showCode = ref(false)
 // 测试数据
-output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_re.out").toString())
+output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\minic_re.out").toString())
 
 function handleChangeFile(file) {
     console.log("handleChangeFile")
@@ -168,27 +168,27 @@ function handleDFA() {
     showGraph.value = true;
     showCode.value = false;
     for (let key in output.value) {
+        console.log(key)
         let obj = output.value[key]["nfa2dfa"];
         let start = obj['start'];
         let end = obj['end']; // DFA的end是数组
         let edgeList = obj["edgeList"];
-        let stateList = obj['nodeList'];
-        let nodeList = [];
-        for (let i = start; i <= end[end.length - 1]; ++i) {
-            let label = i.toString() + ":{" + stateList[i] + "}";
+        let nodeList = obj['nodeList'];
+        let newNodeList = [];
+        for (let i = start; i < nodeList.length; ++i) {
+            let label = i.toString() + ":{" + nodeList[i] + "}";
             let node = {
                 id: i,
                 label: label
             }
-            nodeList.push(node);
+            newNodeList.push(node);
         }
 
         let newEdgeList = [];
         edgeList.map((item, index) => {
             newEdgeList.push(Object.assign({}, item, {"arrows": "to"}));
         });
-
-        let visNodeList = new DataSet(nodeList);
+        let visNodeList = new DataSet(newNodeList);
         let visEdgeList = new DataSet(newEdgeList);
 
         // 获取容器
