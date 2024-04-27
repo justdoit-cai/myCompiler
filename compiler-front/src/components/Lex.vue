@@ -22,41 +22,46 @@
         </el-aside>
         <div style="width: 1px; background-color: lightskyblue; margin: 0 10px;"></div>
         <el-main style="padding-top: 0;padding-left: 0">
-            <el-header>
                 <el-row :gutter="20">
-                    <el-col :span="4">
+                    <el-col :span=6>
                         <el-button color="#626aef" style="width: 150px;" @click="handleNFA">
                             显示NFA
                         </el-button>
                     </el-col>
-                    <el-col :span="4">
+                    <el-col :span="6">
                         <el-button color="#626aef" style="width: 150px;" @click="handleDFA">
                             显示DFA
                         </el-button>
                     </el-col>
-                    <el-col :span="4">
+                    <el-col :span="6">
                         <el-button color="#626aef" style="width: 150px;" @click="handleSimplifyDFA">
                             显示最小化DFA
                         </el-button>
                     </el-col>
-                    <el-col :span="4">
+                    <el-col :span="6">
+                        <el-button color="#626aef" style="width: 150px;" @click="handleCombinedDFA">
+                            显示合并后的DFA
+                        </el-button>
+                    </el-col>
+                </el-row>
+                <el-row :gutter="20">
+                    <el-col :span="8">
                         <el-button color="#626aef" style="width: 150px;" @click="handleOutputCode">
                             显示词法分析程序
                         </el-button>
                     </el-col>
-                    <el-col :span="4">
+                    <el-col :span="8">
                         <el-button color="#626aef" style="width: 150px;" @click="handleCompileCode">
                             编译词法分析程序
                         </el-button>
                     </el-col>
-                    <el-col :span="4">
+                    <el-col :span="8">
                         <el-button color="#626aef" style="width: 150px;" @click="handleExecCode">
                             运行词法分析程序
                         </el-button>
                     </el-col>
                 </el-row>
-            </el-header>
-            <div v-show="showGraph" v-for="(value, key, index) in output">
+            <div v-show="showGraph" v-for="(value, key, index) in graph">
                 <el-card>
                     {{ key }}
                     <el-divider/>
@@ -71,9 +76,23 @@
                 </el-card>
                 <br>
             </div>
+
+            <div v-show="showCodeGraph">
+                <el-card>
+                    <div>
+                        <!--                            <el-row>-->
+                        <!--                                <span>{{ message }}</span>-->
+                        <!--                            </el-row>-->
+                        <!--                            <br>-->
+                        <div id="combinedDfa" style="width: 100%; height: 600px; border: 2px; background-color: #fff;">
+                        </div>
+                    </div>
+                </el-card>
+                <br>
+            </div>
             <div v-show="showCode">
                 <el-card>
-                    code1111111111111111
+                    <pre><code v-text="code" ></code></pre>
                 </el-card>
                 <br>
             </div>
@@ -96,11 +115,15 @@ import {DataSet} from "vis-data/peer/umd/vis-data.min";
 const inputLex = ref(null);
 const inputLexPath = ref(null)
 const output = ref(null)
+const graph = ref(null)
+const code = ref("")
 const showGraph = ref(false)
 const showCode = ref(false)
+const showCodeGraph = ref(false)
 // 测试数据
-output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\minic_re.out").toString())
-
+output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_re.out").toString())
+// output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\minic_re.out").toString())
+graph.value = output.value["graph"]
 function handleChangeFile(file) {
     console.log("handleChangeFile")
     console.log(file.raw.path)
@@ -129,9 +152,11 @@ function handleRemoveFile() {
 function handleNFA() {
     showGraph.value = true;
     showCode.value = false;
-    for (let key in output.value) {
+    showCodeGraph.value = false;
+
+    for (let key in graph.value) {
         console.log(key)
-        let obj = output.value[key]["re2nfa"];
+        let obj = graph.value[key]["re2nfa"];
         let start = obj['start'];
         let end = obj['end'];
         let nodeList = [];
@@ -167,9 +192,11 @@ function handleNFA() {
 function handleDFA() {
     showGraph.value = true;
     showCode.value = false;
-    for (let key in output.value) {
+    showCodeGraph.value = false;
+
+    for (let key in graph.value) {
         console.log(key)
-        let obj = output.value[key]["nfa2dfa"];
+        let obj = graph.value[key]["nfa2dfa"];
         let start = obj['start'];
         let end = obj['end']; // DFA的end是数组
         let edgeList = obj["edgeList"];
@@ -210,8 +237,10 @@ function handleDFA() {
 function handleSimplifyDFA() {
     showGraph.value = true;
     showCode.value = false;
-    for (let key in output.value) {
-        let obj = output.value[key]["simplifiedDfa"];
+    showCodeGraph.value = false;
+
+    for (let key in graph.value) {
+        let obj = graph.value[key]["simplifiedDfa"];
 
         let start = obj['start'];
         let end = obj['end'];
@@ -250,14 +279,53 @@ function handleSimplifyDFA() {
         var network = new Network(container, visData, options);
     }
 }
+function handleCombinedDFA() {
+    showCodeGraph.value = true;
+    showCode.value = false;
+    showGraph.value = false;
+    let obj = output.value["code"];
+    let edgeList = obj['edgeList'];
+
+    let nodeList = [];
+    let s = new Set();
+    for (let i in edgeList) {
+        s.add(edgeList[i].from);
+        s.add(edgeList[i].to);
+    }
+    for (let i of s.values()) { // 注意这里set遍历的方式
+        let node = {
+            id: i,
+            label: i.toString()
+        }
+        nodeList.push(node);
+    }
+    let newEdgeList = [];
+    edgeList.map((item, index) => {
+        newEdgeList.push(Object.assign({}, item, {"arrows": "to"}));
+    });
+    let visNodeList = new DataSet(nodeList);
+    let visEdgeList = new DataSet(newEdgeList);
+
+    // 获取容器
+    var container = document.getElementById("combinedDfa");
+    // 将数据赋值给vis 数据格式化器
+    var visData = {
+        nodes: visNodeList,
+        edges: visEdgeList
+    };
+    var options = {};
+    // 初始化关系图
+    var network = new Network(container, visData, options);
+}
 
 function handleOutputCode() {
     showCode.value = true;
     showGraph.value = false;
+    showCodeGraph.value = false;
+    code.value = output.value["code"]["code"]
 }
 
 function handleCompileCode() {
-
 }
 
 function handleExecCode() {
