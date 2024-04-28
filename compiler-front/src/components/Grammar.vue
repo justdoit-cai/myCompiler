@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <el-aside width="30%">
+        <el-aside width="10%">
             <el-upload
                 class="upload-demo"
                 drag
@@ -139,6 +139,7 @@ let slrTableHead1 = ref([]); // action表头
 let slrTableHead2 = ref([]); // goto表头
 // 测试数据
 output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_grammar.out").toString())
+data1.value = output.value["firstAndFollowSet"];
 function handleChangeFile(file) {
     console.log("handleChangeFile")
     console.log(file.raw.path)
@@ -194,34 +195,57 @@ function handleCompileGrammar() {
         nodes: visNodeList,
         edges: visEdgeList,
     };
-    let options = {};
+    let options = {
+        layout: {
+            hierarchical: {
+                direction: "UD",
+            },
+        },
+        physics: {
+            hierarchicalRepulsion: {
+                avoidOverlap: 1,
+            },
+        },
+    }
     let network = new Network(container, visData, options);
     data3.value = output.value["slr1"];
     let tableHead = Object.keys(data3.value[0]);
-    let reg = /[A-Z]/;
+    let reg = /[A-Z]*/;
     slrTableHead1.value = [];
     slrTableHead2.value = [];
     for (let i = 0; i < tableHead.length; ++i) {
         // 非终结符
         if (reg.test(tableHead[i])) {
-            slrTableHead2.value.push(tableHead[i]);
-        } else {
             slrTableHead1.value.push(tableHead[i]);
+        } else {
+            slrTableHead2.value.push(tableHead[i]);
         }
     }
     showFFSet.value = true;
 }
 function handleFFSet() {
-
+    showFFSet.value = true;
+    showLR0.value = false;
+    showSLR1.value = false;
+    showOutputTree.value = false;
 }
 function handleLR0() {
-
+    showFFSet.value = false;
+    showLR0.value = true;
+    showSLR1.value = false;
+    showOutputTree.value = false;
 }
 function handleSLR1() {
-
+    showFFSet.value = false;
+    showLR0.value = false;
+    showSLR1.value = true;
+    showOutputTree.value = false;
 }
 function handleOutputTree() {
-
+    showFFSet.value = false;
+    showLR0.value = false;
+    showSLR1.value = false;
+    showOutputTree.value = true;
 }
 function indexMethod(index) {
     return index;

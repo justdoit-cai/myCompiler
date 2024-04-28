@@ -182,7 +182,18 @@ function handleNFA() {
             nodes: visNodeList,
             edges: visEdgeList
         };
-        var options = {};
+        var options = {
+            layout: {
+                hierarchical: {
+                    direction: "UD",
+                },
+            },
+            physics: {
+                hierarchicalRepulsion: {
+                    avoidOverlap: 1,
+                },
+            },
+        };
         // 初始化关系图
         var network = new Network(container, visData, options);
     }
@@ -225,7 +236,18 @@ function handleDFA() {
             nodes: visNodeList,
             edges: visEdgeList
         };
-        var options = {};
+        var options = {
+            layout: {
+                hierarchical: {
+                    direction: "UD",
+                },
+            },
+            physics: {
+                hierarchicalRepulsion: {
+                    avoidOverlap: 1,
+                },
+            },
+        };
         // 初始化关系图
         var network = new Network(container, visData, options);
     }
@@ -274,7 +296,18 @@ function handleSimplifyDFA() {
             nodes: visNodeList,
             edges: visEdgeList
         };
-        var options = {};
+        var options = {
+            layout: {
+                hierarchical: {
+                    direction: "UD",
+                },
+            },
+            physics: {
+                hierarchicalRepulsion: {
+                    avoidOverlap: 1,
+                },
+            },
+        };
         // 初始化关系图
         var network = new Network(container, visData, options);
     }
@@ -313,7 +346,18 @@ function handleCombinedDFA() {
         nodes: visNodeList,
         edges: visEdgeList
     };
-    var options = {};
+    var options = {
+        layout: {
+            hierarchical: {
+                direction: "UD",
+            },
+        },
+        physics: {
+            hierarchicalRepulsion: {
+                avoidOverlap: 1,
+            },
+        },
+    };
     // 初始化关系图
     var network = new Network(container, visData, options);
 }
