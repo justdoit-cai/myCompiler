@@ -1,14 +1,32 @@
 <template>
     <el-container>
-        <el-aside width="30%">
+        <el-aside width="20%">
+            <span>输入正则表达式文件</span>
             <el-upload
                     class="upload-demo"
                     drag
                     action=""
                     :auto-upload="false"
                     :limit="1"
-                    :on-change="handleChangeFile"
-                    :on-remove="handleRemoveFile"
+                    :on-change="handleChangeFile1"
+                    :on-remove="handleRemoveFile1"
+            >
+                <el-icon class="el-icon--upload">
+                    <upload-filled/>
+                </el-icon>
+                <div class="el-upload__text">
+                    Drop file here or <em>click to upload</em>
+                </div>
+            </el-upload>
+            <span>输入源程序文件</span>
+            <el-upload
+                class="upload-demo"
+                drag
+                action=""
+                :auto-upload="false"
+                :limit="1"
+                :on-change="handleChangeFile2"
+                :on-remove="handleRemoveFile2"
             >
                 <el-icon class="el-icon--upload">
                     <upload-filled/>
@@ -18,49 +36,53 @@
                 </div>
             </el-upload>
             <el-button type="primary" @click="handleCompileLex">开始编译</el-button>
-            <el-input v-model="inputLex" type="textarea" placeholder="Please input" autosize :rows="10"/>
         </el-aside>
         <div style="width: 1px; background-color: lightskyblue; margin: 0 10px;"></div>
         <el-main style="padding-top: 0;padding-left: 0">
-                <el-row :gutter="20">
-                    <el-col :span=6>
-                        <el-button color="#626aef" style="width: 150px;" @click="handleNFA">
-                            显示NFA
-                        </el-button>
-                    </el-col>
-                    <el-col :span="6">
-                        <el-button color="#626aef" style="width: 150px;" @click="handleDFA">
-                            显示DFA
-                        </el-button>
-                    </el-col>
-                    <el-col :span="6">
-                        <el-button color="#626aef" style="width: 150px;" @click="handleSimplifyDFA">
-                            显示最小化DFA
-                        </el-button>
-                    </el-col>
-                    <el-col :span="6">
-                        <el-button color="#626aef" style="width: 150px;" @click="handleCombinedDFA">
-                            显示合并后的DFA
-                        </el-button>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="8">
-                        <el-button color="#626aef" style="width: 150px;" @click="handleOutputCode">
-                            显示词法分析程序
-                        </el-button>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-button color="#626aef" style="width: 150px;" @click="handleCompileCode">
-                            编译词法分析程序
-                        </el-button>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-button color="#626aef" style="width: 150px;" @click="handleExecCode">
-                            运行词法分析程序
-                        </el-button>
-                    </el-col>
-                </el-row>
+            <el-row :gutter="20">
+                <el-col :span=6>
+                    <el-button color="#626aef" style="width: 150px;" @click="handleNFA">
+                        显示NFA
+                    </el-button>
+                </el-col>
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleDFA">
+                        显示DFA
+                    </el-button>
+                </el-col>
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleSimplifyDFA">
+                        显示最小化DFA
+                    </el-button>
+                </el-col>
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleCombinedDFA">
+                        显示合并后的DFA
+                    </el-button>
+                </el-col>
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleOutputCode">
+                        显示词法分析程序
+                    </el-button>
+                </el-col>
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleCompileCode">
+                        编译词法分析程序
+                    </el-button>
+                </el-col>
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleExecCode">
+                        运行词法分析程序
+                    </el-button>
+                </el-col>
+                <el-col :span="6">
+                    <el-button color="#626aef" style="width: 150px;" @click="handleSaveCode">
+                        保存当前显示code
+                    </el-button>
+                </el-col>
+            </el-row>
             <div v-show="showGraph" v-for="(value, key, index) in graph">
                 <el-card>
                     {{ key }}
@@ -92,7 +114,7 @@
             </div>
             <div v-show="showCode">
                 <el-card>
-                    <pre><code v-text="code" ></code></pre>
+                    <pre><code v-text="code"></code></pre>
                 </el-card>
                 <br>
             </div>
@@ -102,29 +124,26 @@
 
 <script setup lang="ts">
 import {onMounted, ref} from 'vue'
-
 const fs = require('fs');
 import {ElMessage, genFileId} from 'element-plus'
 import type {UploadInstance, UploadProps, UploadRawFile} from 'element-plus'
 import {UploadFilled} from '@element-plus/icons-vue'
-
+const spawnSync = require("child_process").spawnSync
+const spawn = require("child_process").spawn
 const upload = ref<UploadInstance>()
 import {Network} from "vis-network";
 import {DataSet} from "vis-data/peer/umd/vis-data.min";
-
-const inputLex = ref(null);
-const inputLexPath = ref(null)
+const inputLex = ref(""); // 正则表达式文件内容
+const inputLexPath = ref(null) // 正则表达式文件路径
+const inputCodePath = ref(null) // 源程序文件路径
+const outputCodePath = ref("") // 输出的lex文件路径
 const output = ref(null)
 const graph = ref(null)
 const code = ref("")
 const showGraph = ref(false)
 const showCode = ref(false)
 const showCodeGraph = ref(false)
-// 测试数据
-output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\tiny_re.out").toString())
-// output.value = JSON.parse(fs.readFileSync("C:\\Users\\20688\\Desktop\\compiler-project\\compiler-implement\\out\\minic_re.out").toString())
-graph.value = output.value["graph"]
-function handleChangeFile(file) {
+function handleChangeFile1(file) {
     console.log("handleChangeFile")
     console.log(file.raw.path)
     fs.readFile(file.raw.path, (err, data) => {
@@ -133,19 +152,58 @@ function handleChangeFile(file) {
         inputLex.value = data.toString();
         inputLexPath.value = file.raw.path;
         ElMessage({
-            message: '上传成功',
+            message: '正则表达式文件上传成功',
             type: 'success',
         })
     })
 }
 
-function handleRemoveFile() {
+function handleRemoveFile1() {
     console.log("handleRemoveFile")
     inputLex.value = ""
     inputLexPath.value = null;
     ElMessage({
-        message: '清除成功',
+        message: '正则表达式文件清除成功',
         type: 'success',
+    })
+}
+function handleChangeFile2(file) {
+    console.log("handleChangeFile")
+    inputCodePath.value = file.raw.path;
+    console.log(inputCodePath.value)
+    ElMessage({
+        message: '源程序文件上传成功',
+        type: 'success',
+    })
+}
+
+function handleRemoveFile2() {
+    console.log("handleRemoveFile")
+    inputCodePath.value = null;
+    ElMessage({
+        message: '源程序文件清除成功',
+        type: 'success',
+    })
+}
+function handleCompileLex() {
+    console.log("handleCompileLex")
+    if (inputLexPath.value === null || inputLex.value === "") {
+        ElMessage({
+            message: "输入正则表达式文件后才能进行编译",
+            type: "error"
+        })
+        return
+    }
+    spawn("main.exe", [inputLexPath.value], {})
+    fs.readFile("temp_re.out", (err, content) => {
+        if (err) throw err;
+        console.log(content.toString())
+        output.value = JSON.parse(content.toString());
+        graph.value = output.value["graph"]
+        ElMessage({
+            message: "编译成功",
+            type: "success"
+        })
     })
 }
 
@@ -312,6 +370,7 @@ function handleSimplifyDFA() {
         var network = new Network(container, visData, options);
     }
 }
+
 function handleCombinedDFA() {
     showCodeGraph.value = true;
     showCode.value = false;
@@ -370,15 +429,69 @@ function handleOutputCode() {
 }
 
 function handleCompileCode() {
+    fs.writeFile("./temp_lex.cpp", code.value, (err) => {
+        if (err)
+            console.log(err);
+        else {
+            console.log("File written successfully\n");
+        }
+    })
+    const proc = spawn("g++", ["temp_lex.cpp", "-o", "lex.exe"], {})
+    ElMessage({
+        message: '编译成功，生成的可执行程序为lex.exe',
+        type: 'success',
+    })
 }
 
 function handleExecCode() {
-
+    if (inputCodePath.value == null || inputLexPath.value == null) {
+        ElMessage({
+            message: '输入源程序文件后才能进行词法分析',
+            type: 'error',
+        })
+        return
+    }
+    const proc = spawn("lex.exe", [inputCodePath.value], {})
+    proc.stdout.on('data', function (data) {
+        showCode.value = true;
+        showGraph.value = false;
+        showCodeGraph.value = false;
+        code.value = data.toString();
+        ElMessage({
+            message: '分析成功',
+            type: 'success',
+        })
+    })
 }
 
-function handleCompileLex() {
-
+function handleSaveCode() {
+    if (code.value == "") {
+        ElMessage({
+            message: "当前code为空",
+            type: "error"
+        })
+    }
+    let timestamp = (new Date()).valueOf();
+    let filename = timestamp + ".txt"
+    console.log(filename)
+    fs.writeFile(filename, code.value, (err) => {
+        if (err) {
+            console.log(err);
+            ElMessage({
+                message: "保存失败: " + err,
+                type: "error"
+            })
+        }
+        else {
+            ElMessage({
+                message: "成功保存至" + filename,
+                type: "success"
+            })
+        }
+    });
 }
+
+
 
 onMounted(() => {
     console.log("onMounted");

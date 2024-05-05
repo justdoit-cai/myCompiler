@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@antv/g6": "^4.8.23",
+    "@electron/remote": "^2.1.2",
     "highlight.js": "^11.9.0",
     "mavon-editor": "^2.10.4",
     "vis-data": "^7.1.7",
@@ -23,10 +24,10 @@
     "vue-json-pretty": "^2.3.0"
   },
   "devDependencies": {
-    "element-plus": "^2.4.0",
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.3.5",
     "electron": "^27.0.0",
-    "electron-builder": "^24.6.4"
+    "electron-builder": "^24.6.4",
+    "element-plus": "^2.4.0",
+    "vite": "^4.3.5"
   }
 }
