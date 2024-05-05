@@ -43,24 +43,25 @@
                 <el-row :gutter="50">
                     <el-col :span="6">
                         <el-button color="#626aef" style="width: 250px;"
-                                   @click="showFFSet=true;showLR0=false;showSLR1=false">
+                                   @click="handleFFSet">
                             显示First集合和Follow集合
                         </el-button>
                     </el-col>
                     <el-col :span="6">
                         <el-button color="#626aef" style="width: 250px;"
-                                   @click="showLR0=true;showFFSet=false;showSLR1=false">
+                                   @click="handleLR0">
                             显示LR(0)DFA图
                         </el-button>
                     </el-col>
                     <el-col :span="6">
                         <el-button color="#626aef" style="width: 250px;"
-                                   @click="showSLR1=true;showFFSet=false;showLR0=false">
+                                   @click="handleSLR1">
                             显示SLR(1)分析表
                         </el-button>
                     </el-col>
                     <el-col :span="6">
-                        <el-button color="#626aef" style="width: 250px;" @click="handleOutputTree">
+                        <el-button color="#626aef" style="width: 250px;"
+                                   @click="handleOutputTree">
                             生成语法树
                         </el-button>
                     </el-col>
@@ -213,8 +214,11 @@ function handleCompileGrammar() {
         })
         return
     }
+    if (!fs.existsSync("temp")) {
+        fs.mkdirSync("temp");
+    }
     spawnSync("main.exe", [inputGrammarPath.value, inputLexPath.value], {})
-    output.value = JSON.parse(fs.readFileSync("temp_grammar.out"))
+    output.value = JSON.parse(fs.readFileSync("./temp/temp_grammar.out"))
 
     data1.value = output.value["firstAndFollowSet"];
     console.log(data1.value)

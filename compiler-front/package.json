@@ -1,5 +1,5 @@
 {
-  "name": "exp02",
+  "name": "myCompiler",
   "version": "0.0.0",
   "private": true,
   "main": "main.js",
@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "electron ."
+    "start": "electron .",
+    "package-win": "electron-packager . start --overwrite --platform=win32 --asar --arch=x64 --out=app --electron-version=24.3.0"
   },
   "keywords": [],
   "author": "Anchor",
@@ -28,6 +29,8 @@
     "electron": "^27.0.0",
     "electron-builder": "^24.6.4",
     "element-plus": "^2.4.0",
-    "vite": "^4.3.5"
+    "vite": "^4.3.5",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-packager": "^17.1.1"
   }
 }

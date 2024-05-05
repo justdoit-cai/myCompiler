@@ -1,0 +1,17 @@
+int max(int a, int b) {
+    if(a>=b)
+        return a;
+    else
+        return b;
+}
+void main (void) {
+    int x;
+    int y[1];
+    int b;
+    int a[2];
+    x = input();
+    y[1] = input();
+    a[2] = x*y;
+    b = x+y;
+    output(max(a,b));
+}

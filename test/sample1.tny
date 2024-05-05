@@ -1,0 +1,10 @@
+read sum;
+sum := 0;
+if (sum <> 10) then
+	write 1
+else
+	write 0
+end;
+repeat
+    sum := sum + 1
+until sum = 10

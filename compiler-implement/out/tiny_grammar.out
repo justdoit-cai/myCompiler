@@ -1,0 +1,4466 @@
+{
+    "firstAndFollowSet": [
+        {
+            "char": "program",
+            "firstSet": [
+                "IF",
+                "REPEAT",
+                "ID",
+                "READ",
+                "WRITE"
+            ],
+            "followSet": [
+                "@"
+            ]
+        },
+        {
+            "char": "stmt-sequence",
+            "firstSet": [
+                "IF",
+                "REPEAT",
+                "ID",
+                "READ",
+                "WRITE"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "statement",
+            "firstSet": [
+                "IF",
+                "REPEAT",
+                "ID",
+                "READ",
+                "WRITE"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "if-stmt",
+            "firstSet": [
+                "IF"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "repeat-stmt",
+            "firstSet": [
+                "REPEAT"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "assign-stmt",
+            "firstSet": [
+                "ID"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "read-stmt",
+            "firstSet": [
+                "READ"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "write-stmt",
+            "firstSet": [
+                "WRITE"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "END",
+                "ELSE",
+                "UNTIL"
+            ]
+        },
+        {
+            "char": "exp",
+            "firstSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "THEN",
+                "END",
+                "ELSE",
+                "UNTIL",
+                "RRP"
+            ]
+        },
+        {
+            "char": "comparison-op",
+            "firstSet": [
+                "LT",
+                "EQ",
+                "LE",
+                "NE",
+                "GE",
+                "GT"
+            ],
+            "followSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ]
+        },
+        {
+            "char": "simple-exp",
+            "firstSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "THEN",
+                "END",
+                "ELSE",
+                "UNTIL",
+                "LT",
+                "EQ",
+                "LE",
+                "NE",
+                "GE",
+                "GT",
+                "PLUS",
+                "MINUS",
+                "RRP"
+            ]
+        },
+        {
+            "char": "addop",
+            "firstSet": [
+                "PLUS",
+                "MINUS"
+            ],
+            "followSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ]
+        },
+        {
+            "char": "term",
+            "firstSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "THEN",
+                "END",
+                "ELSE",
+                "UNTIL",
+                "LT",
+                "EQ",
+                "LE",
+                "NE",
+                "GE",
+                "GT",
+                "PLUS",
+                "MINUS",
+                "MUL",
+                "DIV",
+                "MOD",
+                "RRP"
+            ]
+        },
+        {
+            "char": "mulop",
+            "firstSet": [
+                "MUL",
+                "DIV",
+                "MOD"
+            ],
+            "followSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ]
+        },
+        {
+            "char": "factor",
+            "firstSet": [
+                "ID",
+                "LRP",
+                "NUM"
+            ],
+            "followSet": [
+                "@",
+                "SEM",
+                "THEN",
+                "END",
+                "ELSE",
+                "UNTIL",
+                "LT",
+                "EQ",
+                "LE",
+                "NE",
+                "GE",
+                "GT",
+                "PLUS",
+                "MINUS",
+                "MUL",
+                "DIV",
+                "MOD",
+                "RRP"
+            ]
+        }
+    ],
+    "isSlr1": true,
+    "lr0": {
+        "edge": [
+            {
+                "from": 0,
+                "label": "stmt-sequence",
+                "to": 1
+            },
+            {
+                "from": 0,
+                "label": "statement",
+                "to": 2
+            },
+            {
+                "from": 0,
+                "label": "if-stmt",
+                "to": 3
+            },
+            {
+                "from": 0,
+                "label": "repeat-stmt",
+                "to": 4
+            },
+            {
+                "from": 0,
+                "label": "assign-stmt",
+                "to": 5
+            },
+            {
+                "from": 0,
+                "label": "read-stmt",
+                "to": 6
+            },
+            {
+                "from": 0,
+                "label": "write-stmt",
+                "to": 7
+            },
+            {
+                "from": 0,
+                "label": "IF",
+                "to": 8
+            },
+            {
+                "from": 0,
+                "label": "REPEAT",
+                "to": 9
+            },
+            {
+                "from": 0,
+                "label": "ID",
+                "to": 10
+            },
+            {
+                "from": 0,
+                "label": "READ",
+                "to": 11
+            },
+            {
+                "from": 0,
+                "label": "WRITE",
+                "to": 12
+            },
+            {
+                "from": 0,
+                "label": "program",
+                "to": 13
+            },
+            {
+                "from": 1,
+                "label": "SEM",
+                "to": 14
+            },
+            {
+                "from": 8,
+                "label": "exp",
+                "to": 15
+            },
+            {
+                "from": 8,
+                "label": "simple-exp",
+                "to": 16
+            },
+            {
+                "from": 8,
+                "label": "term",
+                "to": 17
+            },
+            {
+                "from": 8,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 8,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 8,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 8,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 9,
+                "label": "stmt-sequence",
+                "to": 22
+            },
+            {
+                "from": 9,
+                "label": "statement",
+                "to": 2
+            },
+            {
+                "from": 9,
+                "label": "if-stmt",
+                "to": 3
+            },
+            {
+                "from": 9,
+                "label": "repeat-stmt",
+                "to": 4
+            },
+            {
+                "from": 9,
+                "label": "assign-stmt",
+                "to": 5
+            },
+            {
+                "from": 9,
+                "label": "read-stmt",
+                "to": 6
+            },
+            {
+                "from": 9,
+                "label": "write-stmt",
+                "to": 7
+            },
+            {
+                "from": 9,
+                "label": "IF",
+                "to": 8
+            },
+            {
+                "from": 9,
+                "label": "REPEAT",
+                "to": 9
+            },
+            {
+                "from": 9,
+                "label": "ID",
+                "to": 10
+            },
+            {
+                "from": 9,
+                "label": "READ",
+                "to": 11
+            },
+            {
+                "from": 9,
+                "label": "WRITE",
+                "to": 12
+            },
+            {
+                "from": 10,
+                "label": "ASSIGN",
+                "to": 23
+            },
+            {
+                "from": 11,
+                "label": "ID",
+                "to": 24
+            },
+            {
+                "from": 12,
+                "label": "exp",
+                "to": 25
+            },
+            {
+                "from": 12,
+                "label": "simple-exp",
+                "to": 16
+            },
+            {
+                "from": 12,
+                "label": "term",
+                "to": 17
+            },
+            {
+                "from": 12,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 12,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 12,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 12,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 14,
+                "label": "statement",
+                "to": 26
+            },
+            {
+                "from": 14,
+                "label": "if-stmt",
+                "to": 3
+            },
+            {
+                "from": 14,
+                "label": "repeat-stmt",
+                "to": 4
+            },
+            {
+                "from": 14,
+                "label": "assign-stmt",
+                "to": 5
+            },
+            {
+                "from": 14,
+                "label": "read-stmt",
+                "to": 6
+            },
+            {
+                "from": 14,
+                "label": "write-stmt",
+                "to": 7
+            },
+            {
+                "from": 14,
+                "label": "IF",
+                "to": 8
+            },
+            {
+                "from": 14,
+                "label": "REPEAT",
+                "to": 9
+            },
+            {
+                "from": 14,
+                "label": "ID",
+                "to": 10
+            },
+            {
+                "from": 14,
+                "label": "READ",
+                "to": 11
+            },
+            {
+                "from": 14,
+                "label": "WRITE",
+                "to": 12
+            },
+            {
+                "from": 15,
+                "label": "THEN",
+                "to": 27
+            },
+            {
+                "from": 16,
+                "label": "comparison-op",
+                "to": 28
+            },
+            {
+                "from": 16,
+                "label": "LT",
+                "to": 29
+            },
+            {
+                "from": 16,
+                "label": "EQ",
+                "to": 30
+            },
+            {
+                "from": 16,
+                "label": "LE",
+                "to": 31
+            },
+            {
+                "from": 16,
+                "label": "NE",
+                "to": 32
+            },
+            {
+                "from": 16,
+                "label": "GE",
+                "to": 33
+            },
+            {
+                "from": 16,
+                "label": "GT",
+                "to": 34
+            },
+            {
+                "from": 16,
+                "label": "addop",
+                "to": 35
+            },
+            {
+                "from": 16,
+                "label": "PLUS",
+                "to": 36
+            },
+            {
+                "from": 16,
+                "label": "MINUS",
+                "to": 37
+            },
+            {
+                "from": 17,
+                "label": "mulop",
+                "to": 38
+            },
+            {
+                "from": 17,
+                "label": "MUL",
+                "to": 39
+            },
+            {
+                "from": 17,
+                "label": "DIV",
+                "to": 40
+            },
+            {
+                "from": 17,
+                "label": "MOD",
+                "to": 41
+            },
+            {
+                "from": 20,
+                "label": "simple-exp",
+                "to": 16
+            },
+            {
+                "from": 20,
+                "label": "term",
+                "to": 17
+            },
+            {
+                "from": 20,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 20,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 20,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 20,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 20,
+                "label": "exp",
+                "to": 42
+            },
+            {
+                "from": 22,
+                "label": "SEM",
+                "to": 14
+            },
+            {
+                "from": 22,
+                "label": "UNTIL",
+                "to": 43
+            },
+            {
+                "from": 23,
+                "label": "exp",
+                "to": 44
+            },
+            {
+                "from": 23,
+                "label": "simple-exp",
+                "to": 16
+            },
+            {
+                "from": 23,
+                "label": "term",
+                "to": 17
+            },
+            {
+                "from": 23,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 23,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 23,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 23,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 27,
+                "label": "stmt-sequence",
+                "to": 45
+            },
+            {
+                "from": 27,
+                "label": "statement",
+                "to": 2
+            },
+            {
+                "from": 27,
+                "label": "if-stmt",
+                "to": 3
+            },
+            {
+                "from": 27,
+                "label": "repeat-stmt",
+                "to": 4
+            },
+            {
+                "from": 27,
+                "label": "assign-stmt",
+                "to": 5
+            },
+            {
+                "from": 27,
+                "label": "read-stmt",
+                "to": 6
+            },
+            {
+                "from": 27,
+                "label": "write-stmt",
+                "to": 7
+            },
+            {
+                "from": 27,
+                "label": "IF",
+                "to": 8
+            },
+            {
+                "from": 27,
+                "label": "REPEAT",
+                "to": 9
+            },
+            {
+                "from": 27,
+                "label": "ID",
+                "to": 10
+            },
+            {
+                "from": 27,
+                "label": "READ",
+                "to": 11
+            },
+            {
+                "from": 27,
+                "label": "WRITE",
+                "to": 12
+            },
+            {
+                "from": 28,
+                "label": "simple-exp",
+                "to": 46
+            },
+            {
+                "from": 28,
+                "label": "term",
+                "to": 17
+            },
+            {
+                "from": 28,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 28,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 28,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 28,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 35,
+                "label": "term",
+                "to": 47
+            },
+            {
+                "from": 35,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 35,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 35,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 35,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 38,
+                "label": "factor",
+                "to": 48
+            },
+            {
+                "from": 38,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 38,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 38,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 42,
+                "label": "RRP",
+                "to": 49
+            },
+            {
+                "from": 43,
+                "label": "exp",
+                "to": 50
+            },
+            {
+                "from": 43,
+                "label": "simple-exp",
+                "to": 16
+            },
+            {
+                "from": 43,
+                "label": "term",
+                "to": 17
+            },
+            {
+                "from": 43,
+                "label": "factor",
+                "to": 18
+            },
+            {
+                "from": 43,
+                "label": "ID",
+                "to": 19
+            },
+            {
+                "from": 43,
+                "label": "LRP",
+                "to": 20
+            },
+            {
+                "from": 43,
+                "label": "NUM",
+                "to": 21
+            },
+            {
+                "from": 45,
+                "label": "SEM",
+                "to": 14
+            },
+            {
+                "from": 45,
+                "label": "END",
+                "to": 51
+            },
+            {
+                "from": 45,
+                "label": "ELSE",
+                "to": 52
+            },
+            {
+                "from": 46,
+                "label": "addop",
+                "to": 35
+            },
+            {
+                "from": 46,
+                "label": "PLUS",
+                "to": 36
+            },
+            {
+                "from": 46,
+                "label": "MINUS",
+                "to": 37
+            },
+            {
+                "from": 47,
+                "label": "mulop",
+                "to": 38
+            },
+            {
+                "from": 47,
+                "label": "MUL",
+                "to": 39
+            },
+            {
+                "from": 47,
+                "label": "DIV",
+                "to": 40
+            },
+            {
+                "from": 47,
+                "label": "MOD",
+                "to": 41
+            },
+            {
+                "from": 52,
+                "label": "stmt-sequence",
+                "to": 53
+            },
+            {
+                "from": 52,
+                "label": "statement",
+                "to": 2
+            },
+            {
+                "from": 52,
+                "label": "if-stmt",
+                "to": 3
+            },
+            {
+                "from": 52,
+                "label": "repeat-stmt",
+                "to": 4
+            },
+            {
+                "from": 52,
+                "label": "assign-stmt",
+                "to": 5
+            },
+            {
+                "from": 52,
+                "label": "read-stmt",
+                "to": 6
+            },
+            {
+                "from": 52,
+                "label": "write-stmt",
+                "to": 7
+            },
+            {
+                "from": 52,
+                "label": "IF",
+                "to": 8
+            },
+            {
+                "from": 52,
+                "label": "REPEAT",
+                "to": 9
+            },
+            {
+                "from": 52,
+                "label": "ID",
+                "to": 10
+            },
+            {
+                "from": 52,
+                "label": "READ",
+                "to": 11
+            },
+            {
+                "from": 52,
+                "label": "WRITE",
+                "to": 12
+            },
+            {
+                "from": 53,
+                "label": "SEM",
+                "to": 14
+            },
+            {
+                "from": 53,
+                "label": "END",
+                "to": 54
+            }
+        ],
+        "node": [
+            [
+                {
+                    "left": "program",
+                    "right": ". stmt-sequence "
+                },
+                {
+                    "left": "stmt-sequence",
+                    "right": ". stmt-sequence SEM statement "
+                },
+                {
+                    "left": "stmt-sequence",
+                    "right": ". statement "
+                },
+                {
+                    "left": "statement",
+                    "right": ". if-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". repeat-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". assign-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". read-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". write-stmt "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": ". REPEAT stmt-sequence UNTIL exp "
+                },
+                {
+                    "left": "assign-stmt",
+                    "right": ". ID ASSIGN exp "
+                },
+                {
+                    "left": "read-stmt",
+                    "right": ". READ ID "
+                },
+                {
+                    "left": "write-stmt",
+                    "right": ". WRITE exp "
+                },
+                {
+                    "left": "~",
+                    "right": ". program "
+                }
+            ],
+            [
+                {
+                    "left": "program",
+                    "right": "stmt-sequence . "
+                },
+                {
+                    "left": "stmt-sequence",
+                    "right": "stmt-sequence . SEM statement "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": "statement . "
+                }
+            ],
+            [
+                {
+                    "left": "statement",
+                    "right": "if-stmt . "
+                }
+            ],
+            [
+                {
+                    "left": "statement",
+                    "right": "repeat-stmt . "
+                }
+            ],
+            [
+                {
+                    "left": "statement",
+                    "right": "assign-stmt . "
+                }
+            ],
+            [
+                {
+                    "left": "statement",
+                    "right": "read-stmt . "
+                }
+            ],
+            [
+                {
+                    "left": "statement",
+                    "right": "write-stmt . "
+                }
+            ],
+            [
+                {
+                    "left": "if-stmt",
+                    "right": "IF . exp THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF . exp THEN stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp comparison-op simple-exp "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". simple-exp addop term "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": ". stmt-sequence SEM statement "
+                },
+                {
+                    "left": "stmt-sequence",
+                    "right": ". statement "
+                },
+                {
+                    "left": "statement",
+                    "right": ". if-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". repeat-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". assign-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". read-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". write-stmt "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": ". REPEAT stmt-sequence UNTIL exp "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": "REPEAT . stmt-sequence UNTIL exp "
+                },
+                {
+                    "left": "assign-stmt",
+                    "right": ". ID ASSIGN exp "
+                },
+                {
+                    "left": "read-stmt",
+                    "right": ". READ ID "
+                },
+                {
+                    "left": "write-stmt",
+                    "right": ". WRITE exp "
+                }
+            ],
+            [
+                {
+                    "left": "assign-stmt",
+                    "right": "ID . ASSIGN exp "
+                }
+            ],
+            [
+                {
+                    "left": "read-stmt",
+                    "right": "READ . ID "
+                }
+            ],
+            [
+                {
+                    "left": "write-stmt",
+                    "right": "WRITE . exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp comparison-op simple-exp "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". simple-exp addop term "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "~",
+                    "right": "program . "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": "stmt-sequence SEM . statement "
+                },
+                {
+                    "left": "statement",
+                    "right": ". if-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". repeat-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". assign-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". read-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". write-stmt "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": ". REPEAT stmt-sequence UNTIL exp "
+                },
+                {
+                    "left": "assign-stmt",
+                    "right": ". ID ASSIGN exp "
+                },
+                {
+                    "left": "read-stmt",
+                    "right": ". READ ID "
+                },
+                {
+                    "left": "write-stmt",
+                    "right": ". WRITE exp "
+                }
+            ],
+            [
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp . THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp . THEN stmt-sequence ELSE stmt-sequence END "
+                }
+            ],
+            [
+                {
+                    "left": "exp",
+                    "right": "simple-exp . "
+                },
+                {
+                    "left": "exp",
+                    "right": "simple-exp . comparison-op simple-exp "
+                },
+                {
+                    "left": "comparison-op",
+                    "right": ". LT "
+                },
+                {
+                    "left": "comparison-op",
+                    "right": ". EQ "
+                },
+                {
+                    "left": "comparison-op",
+                    "right": ". LE "
+                },
+                {
+                    "left": "comparison-op",
+                    "right": ". NE "
+                },
+                {
+                    "left": "comparison-op",
+                    "right": ". GE "
+                },
+                {
+                    "left": "comparison-op",
+                    "right": ". GT "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": "simple-exp . addop term "
+                },
+                {
+                    "left": "addop",
+                    "right": ". PLUS "
+                },
+                {
+                    "left": "addop",
+                    "right": ". MINUS "
+                }
+            ],
+            [
+                {
+                    "left": "simple-exp",
+                    "right": "term . "
+                },
+                {
+                    "left": "term",
+                    "right": "term . mulop factor "
+                },
+                {
+                    "left": "mulop",
+                    "right": ". MUL "
+                },
+                {
+                    "left": "mulop",
+                    "right": ". DIV "
+                },
+                {
+                    "left": "mulop",
+                    "right": ". MOD "
+                }
+            ],
+            [
+                {
+                    "left": "term",
+                    "right": "factor . "
+                }
+            ],
+            [
+                {
+                    "left": "factor",
+                    "right": "ID . "
+                }
+            ],
+            [
+                {
+                    "left": "exp",
+                    "right": ". simple-exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp comparison-op simple-exp "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". simple-exp addop term "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                },
+                {
+                    "left": "factor",
+                    "right": "LRP . exp RRP "
+                }
+            ],
+            [
+                {
+                    "left": "factor",
+                    "right": "NUM . "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": "stmt-sequence . SEM statement "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": "REPEAT stmt-sequence . UNTIL exp "
+                }
+            ],
+            [
+                {
+                    "left": "assign-stmt",
+                    "right": "ID ASSIGN . exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp comparison-op simple-exp "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". simple-exp addop term "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "read-stmt",
+                    "right": "READ ID . "
+                }
+            ],
+            [
+                {
+                    "left": "write-stmt",
+                    "right": "WRITE exp . "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": "stmt-sequence SEM statement . "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": ". stmt-sequence SEM statement "
+                },
+                {
+                    "left": "stmt-sequence",
+                    "right": ". statement "
+                },
+                {
+                    "left": "statement",
+                    "right": ". if-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". repeat-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". assign-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". read-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". write-stmt "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN . stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN . stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": ". REPEAT stmt-sequence UNTIL exp "
+                },
+                {
+                    "left": "assign-stmt",
+                    "right": ". ID ASSIGN exp "
+                },
+                {
+                    "left": "read-stmt",
+                    "right": ". READ ID "
+                },
+                {
+                    "left": "write-stmt",
+                    "right": ". WRITE exp "
+                }
+            ],
+            [
+                {
+                    "left": "exp",
+                    "right": "simple-exp comparison-op . simple-exp "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". simple-exp addop term "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "comparison-op",
+                    "right": "LT . "
+                }
+            ],
+            [
+                {
+                    "left": "comparison-op",
+                    "right": "EQ . "
+                }
+            ],
+            [
+                {
+                    "left": "comparison-op",
+                    "right": "LE . "
+                }
+            ],
+            [
+                {
+                    "left": "comparison-op",
+                    "right": "NE . "
+                }
+            ],
+            [
+                {
+                    "left": "comparison-op",
+                    "right": "GE . "
+                }
+            ],
+            [
+                {
+                    "left": "comparison-op",
+                    "right": "GT . "
+                }
+            ],
+            [
+                {
+                    "left": "simple-exp",
+                    "right": "simple-exp addop . term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "addop",
+                    "right": "PLUS . "
+                }
+            ],
+            [
+                {
+                    "left": "addop",
+                    "right": "MINUS . "
+                }
+            ],
+            [
+                {
+                    "left": "term",
+                    "right": "term mulop . factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "mulop",
+                    "right": "MUL . "
+                }
+            ],
+            [
+                {
+                    "left": "mulop",
+                    "right": "DIV . "
+                }
+            ],
+            [
+                {
+                    "left": "mulop",
+                    "right": "MOD . "
+                }
+            ],
+            [
+                {
+                    "left": "factor",
+                    "right": "LRP exp . RRP "
+                }
+            ],
+            [
+                {
+                    "left": "repeat-stmt",
+                    "right": "REPEAT stmt-sequence UNTIL . exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp "
+                },
+                {
+                    "left": "exp",
+                    "right": ". simple-exp comparison-op simple-exp "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". simple-exp addop term "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": ". term "
+                },
+                {
+                    "left": "term",
+                    "right": ". term mulop factor "
+                },
+                {
+                    "left": "term",
+                    "right": ". factor "
+                },
+                {
+                    "left": "factor",
+                    "right": ". ID "
+                },
+                {
+                    "left": "factor",
+                    "right": ". LRP exp RRP "
+                },
+                {
+                    "left": "factor",
+                    "right": ". NUM "
+                }
+            ],
+            [
+                {
+                    "left": "assign-stmt",
+                    "right": "ID ASSIGN exp . "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": "stmt-sequence . SEM statement "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN stmt-sequence . END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN stmt-sequence . ELSE stmt-sequence END "
+                }
+            ],
+            [
+                {
+                    "left": "exp",
+                    "right": "simple-exp comparison-op simple-exp . "
+                },
+                {
+                    "left": "simple-exp",
+                    "right": "simple-exp . addop term "
+                },
+                {
+                    "left": "addop",
+                    "right": ". PLUS "
+                },
+                {
+                    "left": "addop",
+                    "right": ". MINUS "
+                }
+            ],
+            [
+                {
+                    "left": "simple-exp",
+                    "right": "simple-exp addop term . "
+                },
+                {
+                    "left": "term",
+                    "right": "term . mulop factor "
+                },
+                {
+                    "left": "mulop",
+                    "right": ". MUL "
+                },
+                {
+                    "left": "mulop",
+                    "right": ". DIV "
+                },
+                {
+                    "left": "mulop",
+                    "right": ". MOD "
+                }
+            ],
+            [
+                {
+                    "left": "term",
+                    "right": "term mulop factor . "
+                }
+            ],
+            [
+                {
+                    "left": "factor",
+                    "right": "LRP exp RRP . "
+                }
+            ],
+            [
+                {
+                    "left": "repeat-stmt",
+                    "right": "REPEAT stmt-sequence UNTIL exp . "
+                }
+            ],
+            [
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN stmt-sequence END . "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": ". stmt-sequence SEM statement "
+                },
+                {
+                    "left": "stmt-sequence",
+                    "right": ". statement "
+                },
+                {
+                    "left": "statement",
+                    "right": ". if-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". repeat-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". assign-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". read-stmt "
+                },
+                {
+                    "left": "statement",
+                    "right": ". write-stmt "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": ". IF exp THEN stmt-sequence ELSE stmt-sequence END "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN stmt-sequence ELSE . stmt-sequence END "
+                },
+                {
+                    "left": "repeat-stmt",
+                    "right": ". REPEAT stmt-sequence UNTIL exp "
+                },
+                {
+                    "left": "assign-stmt",
+                    "right": ". ID ASSIGN exp "
+                },
+                {
+                    "left": "read-stmt",
+                    "right": ". READ ID "
+                },
+                {
+                    "left": "write-stmt",
+                    "right": ". WRITE exp "
+                }
+            ],
+            [
+                {
+                    "left": "stmt-sequence",
+                    "right": "stmt-sequence . SEM statement "
+                },
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN stmt-sequence ELSE stmt-sequence . END "
+                }
+            ],
+            [
+                {
+                    "left": "if-stmt",
+                    "right": "IF exp THEN stmt-sequence ELSE stmt-sequence END . "
+                }
+            ]
+        ]
+    },
+    "slr1": [
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s10",
+            "IF": "s8",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "s11",
+            "REPEAT": "s9",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "s12",
+            "addop": "",
+            "assign-stmt": "5",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "3",
+            "mulop": "",
+            "program": "13",
+            "read-stmt": "6",
+            "repeat-stmt": "4",
+            "simple-exp": "",
+            "statement": "2",
+            "stmt-sequence": "1",
+            "term": "",
+            "write-stmt": "7"
+        },
+        {
+            "@": "r(program->stmt-sequence)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "s14",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(stmt-sequence->statement)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(stmt-sequence->statement)",
+            "END": "r(stmt-sequence->statement)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(stmt-sequence->statement)",
+            "THEN": "",
+            "UNTIL": "r(stmt-sequence->statement)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(statement->if-stmt)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(statement->if-stmt)",
+            "END": "r(statement->if-stmt)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(statement->if-stmt)",
+            "THEN": "",
+            "UNTIL": "r(statement->if-stmt)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(statement->repeat-stmt)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(statement->repeat-stmt)",
+            "END": "r(statement->repeat-stmt)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(statement->repeat-stmt)",
+            "THEN": "",
+            "UNTIL": "r(statement->repeat-stmt)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(statement->assign-stmt)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(statement->assign-stmt)",
+            "END": "r(statement->assign-stmt)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(statement->assign-stmt)",
+            "THEN": "",
+            "UNTIL": "r(statement->assign-stmt)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(statement->read-stmt)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(statement->read-stmt)",
+            "END": "r(statement->read-stmt)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(statement->read-stmt)",
+            "THEN": "",
+            "UNTIL": "r(statement->read-stmt)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(statement->write-stmt)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(statement->write-stmt)",
+            "END": "r(statement->write-stmt)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(statement->write-stmt)",
+            "THEN": "",
+            "UNTIL": "r(statement->write-stmt)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "15",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "16",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "17",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s10",
+            "IF": "s8",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "s11",
+            "REPEAT": "s9",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "s12",
+            "addop": "",
+            "assign-stmt": "5",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "3",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "6",
+            "repeat-stmt": "4",
+            "simple-exp": "",
+            "statement": "2",
+            "stmt-sequence": "22",
+            "term": "",
+            "write-stmt": "7"
+        },
+        {
+            "@": "",
+            "ASSIGN": "s23",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s24",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "25",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "16",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "17",
+            "write-stmt": ""
+        },
+        {
+            "@": "acc",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s10",
+            "IF": "s8",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "s11",
+            "REPEAT": "s9",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "s12",
+            "addop": "",
+            "assign-stmt": "5",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "3",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "6",
+            "repeat-stmt": "4",
+            "simple-exp": "",
+            "statement": "26",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": "7"
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "s27",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(exp->simple-exp)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(exp->simple-exp)",
+            "END": "r(exp->simple-exp)",
+            "EQ": "s30",
+            "GE": "s33",
+            "GT": "s34",
+            "ID": "",
+            "IF": "",
+            "LE": "s31",
+            "LRP": "",
+            "LT": "s29",
+            "MINUS": "s37",
+            "MOD": "",
+            "MUL": "",
+            "NE": "s32",
+            "NUM": "",
+            "PLUS": "s36",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(exp->simple-exp)",
+            "SEM": "r(exp->simple-exp)",
+            "THEN": "r(exp->simple-exp)",
+            "UNTIL": "r(exp->simple-exp)",
+            "WRITE": "",
+            "addop": "35",
+            "assign-stmt": "",
+            "comparison-op": "28",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(simple-exp->term)",
+            "ASSIGN": "",
+            "DIV": "s40",
+            "ELSE": "r(simple-exp->term)",
+            "END": "r(simple-exp->term)",
+            "EQ": "r(simple-exp->term)",
+            "GE": "r(simple-exp->term)",
+            "GT": "r(simple-exp->term)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(simple-exp->term)",
+            "LRP": "",
+            "LT": "r(simple-exp->term)",
+            "MINUS": "r(simple-exp->term)",
+            "MOD": "s41",
+            "MUL": "s39",
+            "NE": "r(simple-exp->term)",
+            "NUM": "",
+            "PLUS": "r(simple-exp->term)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(simple-exp->term)",
+            "SEM": "r(simple-exp->term)",
+            "THEN": "r(simple-exp->term)",
+            "UNTIL": "r(simple-exp->term)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "38",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(term->factor)",
+            "ASSIGN": "",
+            "DIV": "r(term->factor)",
+            "ELSE": "r(term->factor)",
+            "END": "r(term->factor)",
+            "EQ": "r(term->factor)",
+            "GE": "r(term->factor)",
+            "GT": "r(term->factor)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(term->factor)",
+            "LRP": "",
+            "LT": "r(term->factor)",
+            "MINUS": "r(term->factor)",
+            "MOD": "r(term->factor)",
+            "MUL": "r(term->factor)",
+            "NE": "r(term->factor)",
+            "NUM": "",
+            "PLUS": "r(term->factor)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(term->factor)",
+            "SEM": "r(term->factor)",
+            "THEN": "r(term->factor)",
+            "UNTIL": "r(term->factor)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(factor->ID)",
+            "ASSIGN": "",
+            "DIV": "r(factor->ID)",
+            "ELSE": "r(factor->ID)",
+            "END": "r(factor->ID)",
+            "EQ": "r(factor->ID)",
+            "GE": "r(factor->ID)",
+            "GT": "r(factor->ID)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(factor->ID)",
+            "LRP": "",
+            "LT": "r(factor->ID)",
+            "MINUS": "r(factor->ID)",
+            "MOD": "r(factor->ID)",
+            "MUL": "r(factor->ID)",
+            "NE": "r(factor->ID)",
+            "NUM": "",
+            "PLUS": "r(factor->ID)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(factor->ID)",
+            "SEM": "r(factor->ID)",
+            "THEN": "r(factor->ID)",
+            "UNTIL": "r(factor->ID)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "42",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "16",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "17",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(factor->NUM)",
+            "ASSIGN": "",
+            "DIV": "r(factor->NUM)",
+            "ELSE": "r(factor->NUM)",
+            "END": "r(factor->NUM)",
+            "EQ": "r(factor->NUM)",
+            "GE": "r(factor->NUM)",
+            "GT": "r(factor->NUM)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(factor->NUM)",
+            "LRP": "",
+            "LT": "r(factor->NUM)",
+            "MINUS": "r(factor->NUM)",
+            "MOD": "r(factor->NUM)",
+            "MUL": "r(factor->NUM)",
+            "NE": "r(factor->NUM)",
+            "NUM": "",
+            "PLUS": "r(factor->NUM)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(factor->NUM)",
+            "SEM": "r(factor->NUM)",
+            "THEN": "r(factor->NUM)",
+            "UNTIL": "r(factor->NUM)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "s14",
+            "THEN": "",
+            "UNTIL": "s43",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "44",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "16",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "17",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(read-stmt->READ ID)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(read-stmt->READ ID)",
+            "END": "r(read-stmt->READ ID)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(read-stmt->READ ID)",
+            "THEN": "",
+            "UNTIL": "r(read-stmt->READ ID)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(write-stmt->WRITE exp)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(write-stmt->WRITE exp)",
+            "END": "r(write-stmt->WRITE exp)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(write-stmt->WRITE exp)",
+            "THEN": "",
+            "UNTIL": "r(write-stmt->WRITE exp)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(stmt-sequence->stmt-sequence SEM statement)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(stmt-sequence->stmt-sequence SEM statement)",
+            "END": "r(stmt-sequence->stmt-sequence SEM statement)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(stmt-sequence->stmt-sequence SEM statement)",
+            "THEN": "",
+            "UNTIL": "r(stmt-sequence->stmt-sequence SEM statement)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s10",
+            "IF": "s8",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "s11",
+            "REPEAT": "s9",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "s12",
+            "addop": "",
+            "assign-stmt": "5",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "3",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "6",
+            "repeat-stmt": "4",
+            "simple-exp": "",
+            "statement": "2",
+            "stmt-sequence": "45",
+            "term": "",
+            "write-stmt": "7"
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "46",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "17",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(comparison-op->LT)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(comparison-op->LT)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(comparison-op->LT)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(comparison-op->EQ)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(comparison-op->EQ)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(comparison-op->EQ)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(comparison-op->LE)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(comparison-op->LE)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(comparison-op->LE)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(comparison-op->NE)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(comparison-op->NE)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(comparison-op->NE)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(comparison-op->GE)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(comparison-op->GE)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(comparison-op->GE)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(comparison-op->GT)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(comparison-op->GT)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(comparison-op->GT)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "47",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(addop->PLUS)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(addop->PLUS)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(addop->PLUS)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(addop->MINUS)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(addop->MINUS)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(addop->MINUS)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "48",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(mulop->MUL)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(mulop->MUL)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(mulop->MUL)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(mulop->DIV)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(mulop->DIV)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(mulop->DIV)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "r(mulop->MOD)",
+            "IF": "",
+            "LE": "",
+            "LRP": "r(mulop->MOD)",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "r(mulop->MOD)",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "s49",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s19",
+            "IF": "",
+            "LE": "",
+            "LRP": "s20",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "s21",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "50",
+            "factor": "18",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "16",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "17",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(assign-stmt->ID ASSIGN exp)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(assign-stmt->ID ASSIGN exp)",
+            "END": "r(assign-stmt->ID ASSIGN exp)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(assign-stmt->ID ASSIGN exp)",
+            "THEN": "",
+            "UNTIL": "r(assign-stmt->ID ASSIGN exp)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "s52",
+            "END": "s51",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "s14",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(exp->simple-exp comparison-op simple-exp)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(exp->simple-exp comparison-op simple-exp)",
+            "END": "r(exp->simple-exp comparison-op simple-exp)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "s37",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "s36",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(exp->simple-exp comparison-op simple-exp)",
+            "SEM": "r(exp->simple-exp comparison-op simple-exp)",
+            "THEN": "r(exp->simple-exp comparison-op simple-exp)",
+            "UNTIL": "r(exp->simple-exp comparison-op simple-exp)",
+            "WRITE": "",
+            "addop": "35",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(simple-exp->simple-exp addop term)",
+            "ASSIGN": "",
+            "DIV": "s40",
+            "ELSE": "r(simple-exp->simple-exp addop term)",
+            "END": "r(simple-exp->simple-exp addop term)",
+            "EQ": "r(simple-exp->simple-exp addop term)",
+            "GE": "r(simple-exp->simple-exp addop term)",
+            "GT": "r(simple-exp->simple-exp addop term)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(simple-exp->simple-exp addop term)",
+            "LRP": "",
+            "LT": "r(simple-exp->simple-exp addop term)",
+            "MINUS": "r(simple-exp->simple-exp addop term)",
+            "MOD": "s41",
+            "MUL": "s39",
+            "NE": "r(simple-exp->simple-exp addop term)",
+            "NUM": "",
+            "PLUS": "r(simple-exp->simple-exp addop term)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(simple-exp->simple-exp addop term)",
+            "SEM": "r(simple-exp->simple-exp addop term)",
+            "THEN": "r(simple-exp->simple-exp addop term)",
+            "UNTIL": "r(simple-exp->simple-exp addop term)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "38",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(term->term mulop factor)",
+            "ASSIGN": "",
+            "DIV": "r(term->term mulop factor)",
+            "ELSE": "r(term->term mulop factor)",
+            "END": "r(term->term mulop factor)",
+            "EQ": "r(term->term mulop factor)",
+            "GE": "r(term->term mulop factor)",
+            "GT": "r(term->term mulop factor)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(term->term mulop factor)",
+            "LRP": "",
+            "LT": "r(term->term mulop factor)",
+            "MINUS": "r(term->term mulop factor)",
+            "MOD": "r(term->term mulop factor)",
+            "MUL": "r(term->term mulop factor)",
+            "NE": "r(term->term mulop factor)",
+            "NUM": "",
+            "PLUS": "r(term->term mulop factor)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(term->term mulop factor)",
+            "SEM": "r(term->term mulop factor)",
+            "THEN": "r(term->term mulop factor)",
+            "UNTIL": "r(term->term mulop factor)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(factor->LRP exp RRP)",
+            "ASSIGN": "",
+            "DIV": "r(factor->LRP exp RRP)",
+            "ELSE": "r(factor->LRP exp RRP)",
+            "END": "r(factor->LRP exp RRP)",
+            "EQ": "r(factor->LRP exp RRP)",
+            "GE": "r(factor->LRP exp RRP)",
+            "GT": "r(factor->LRP exp RRP)",
+            "ID": "",
+            "IF": "",
+            "LE": "r(factor->LRP exp RRP)",
+            "LRP": "",
+            "LT": "r(factor->LRP exp RRP)",
+            "MINUS": "r(factor->LRP exp RRP)",
+            "MOD": "r(factor->LRP exp RRP)",
+            "MUL": "r(factor->LRP exp RRP)",
+            "NE": "r(factor->LRP exp RRP)",
+            "NUM": "",
+            "PLUS": "r(factor->LRP exp RRP)",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "r(factor->LRP exp RRP)",
+            "SEM": "r(factor->LRP exp RRP)",
+            "THEN": "r(factor->LRP exp RRP)",
+            "UNTIL": "r(factor->LRP exp RRP)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(repeat-stmt->REPEAT stmt-sequence UNTIL exp)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(repeat-stmt->REPEAT stmt-sequence UNTIL exp)",
+            "END": "r(repeat-stmt->REPEAT stmt-sequence UNTIL exp)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(repeat-stmt->REPEAT stmt-sequence UNTIL exp)",
+            "THEN": "",
+            "UNTIL": "r(repeat-stmt->REPEAT stmt-sequence UNTIL exp)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(if-stmt->IF exp THEN stmt-sequence END)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(if-stmt->IF exp THEN stmt-sequence END)",
+            "END": "r(if-stmt->IF exp THEN stmt-sequence END)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(if-stmt->IF exp THEN stmt-sequence END)",
+            "THEN": "",
+            "UNTIL": "r(if-stmt->IF exp THEN stmt-sequence END)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "s10",
+            "IF": "s8",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "s11",
+            "REPEAT": "s9",
+            "RRP": "",
+            "SEM": "",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "s12",
+            "addop": "",
+            "assign-stmt": "5",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "3",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "6",
+            "repeat-stmt": "4",
+            "simple-exp": "",
+            "statement": "2",
+            "stmt-sequence": "53",
+            "term": "",
+            "write-stmt": "7"
+        },
+        {
+            "@": "",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "",
+            "END": "s54",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "s14",
+            "THEN": "",
+            "UNTIL": "",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        },
+        {
+            "@": "r(if-stmt->IF exp THEN stmt-sequence ELSE stmt-sequence END)",
+            "ASSIGN": "",
+            "DIV": "",
+            "ELSE": "r(if-stmt->IF exp THEN stmt-sequence ELSE stmt-sequence END)",
+            "END": "r(if-stmt->IF exp THEN stmt-sequence ELSE stmt-sequence END)",
+            "EQ": "",
+            "GE": "",
+            "GT": "",
+            "ID": "",
+            "IF": "",
+            "LE": "",
+            "LRP": "",
+            "LT": "",
+            "MINUS": "",
+            "MOD": "",
+            "MUL": "",
+            "NE": "",
+            "NUM": "",
+            "PLUS": "",
+            "READ": "",
+            "REPEAT": "",
+            "RRP": "",
+            "SEM": "r(if-stmt->IF exp THEN stmt-sequence ELSE stmt-sequence END)",
+            "THEN": "",
+            "UNTIL": "r(if-stmt->IF exp THEN stmt-sequence ELSE stmt-sequence END)",
+            "WRITE": "",
+            "addop": "",
+            "assign-stmt": "",
+            "comparison-op": "",
+            "exp": "",
+            "factor": "",
+            "if-stmt": "",
+            "mulop": "",
+            "program": "",
+            "read-stmt": "",
+            "repeat-stmt": "",
+            "simple-exp": "",
+            "statement": "",
+            "stmt-sequence": "",
+            "term": "",
+            "write-stmt": ""
+        }
+    ],
+    "tree": {
+        "program": [
+            {
+                "stmt-sequence": [
+                    {
+                        "statement": [
+                            {
+                                "if-stmt": [
+                                    "end",
+                                    {
+                                        "stmt-sequence": [
+                                            {
+                                                "statement": [
+                                                    {
+                                                        "write-stmt": [
+                                                            {
+                                                                "exp": [
+                                                                    {
+                                                                        "simple-exp": [
+                                                                            {
+                                                                                "term": [
+                                                                                    {
+                                                                                        "factor": [
+                                                                                            "0"
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "write"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "else",
+                                    {
+                                        "stmt-sequence": [
+                                            {
+                                                "statement": [
+                                                    {
+                                                        "write-stmt": [
+                                                            {
+                                                                "exp": [
+                                                                    {
+                                                                        "simple-exp": [
+                                                                            {
+                                                                                "term": [
+                                                                                    {
+                                                                                        "factor": [
+                                                                                            "1"
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "write"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "then",
+                                    {
+                                        "exp": [
+                                            {
+                                                "simple-exp": [
+                                                    {
+                                                        "term": [
+                                                            {
+                                                                "factor": [
+                                                                    ")",
+                                                                    {
+                                                                        "exp": [
+                                                                            {
+                                                                                "simple-exp": [
+                                                                                    {
+                                                                                        "term": [
+                                                                                            {
+                                                                                                "factor": [
+                                                                                                    "10"
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "comparison-op": [
+                                                                                    "<>"
+                                                                                ]
+                                                                            },
+                                                                            {
+                                                                                "simple-exp": [
+                                                                                    {
+                                                                                        "term": [
+                                                                                            {
+                                                                                                "factor": [
+                                                                                                    "sum"
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "("
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "if"
+                                ]
+                            }
+                        ]
+                    },
+                    ";",
+                    {
+                        "stmt-sequence": [
+                            {
+                                "statement": [
+                                    {
+                                        "assign-stmt": [
+                                            {
+                                                "exp": [
+                                                    {
+                                                        "simple-exp": [
+                                                            {
+                                                                "term": [
+                                                                    {
+                                                                        "factor": [
+                                                                            "0"
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            ":=",
+                                            "sum"
+                                        ]
+                                    }
+                                ]
+                            },
+                            ";",
+                            {
+                                "stmt-sequence": [
+                                    {
+                                        "statement": [
+                                            {
+                                                "read-stmt": [
+                                                    "sum",
+                                                    "read"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

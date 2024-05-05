@@ -1,0 +1,15 @@
+program->stmt-sequence
+stmt-sequence->stmt-sequence SEM statement | statement
+statement->if-stmt | repeat-stmt | assign-stmt | read-stmt | write-stmt
+if-stmt->IF exp THEN stmt-sequence END | IF exp THEN stmt-sequence ELSE stmt-sequence END
+repeat-stmt->REPEAT stmt-sequence UNTIL exp
+assign-stmt->ID ASSIGN exp
+read-stmt->READ ID
+write-stmt->WRITE exp
+exp->simple-exp comparison-op simple-exp | simple-exp
+comparison-op->LT | EQ | LE | NE | GE | GT
+simple-exp->simple-exp addop term | term
+addop->PLUS | MINUS
+term->term mulop factor | factor
+mulop->MUL | DIV | MOD
+factor->LRP exp RRP | NUM | ID

@@ -194,8 +194,11 @@ function handleCompileLex() {
         })
         return
     }
+    if (!fs.existsSync("temp")) {
+        fs.mkdirSync("temp");
+    }
     spawn("main.exe", [inputLexPath.value], {})
-    fs.readFile("temp_re.out", (err, content) => {
+    fs.readFile("temp/temp_re.out", (err, content) => {
         if (err) throw err;
         console.log(content.toString())
         output.value = JSON.parse(content.toString());
@@ -429,14 +432,17 @@ function handleOutputCode() {
 }
 
 function handleCompileCode() {
-    fs.writeFile("./temp_lex.cpp", code.value, (err) => {
+    if (!fs.existsSync("temp")) {
+        fs.mkdirSync("temp");
+    }
+    fs.writeFile("./temp/temp_lex.cpp", code.value, (err) => {
         if (err)
             console.log(err);
         else {
             console.log("File written successfully\n");
         }
     })
-    const proc = spawn("g++", ["temp_lex.cpp", "-o", "lex.exe"], {})
+    const proc = spawn("g++", ["./temp/temp_lex.cpp", "-o", "./temp/lex.exe"], {})
     ElMessage({
         message: '编译成功，生成的可执行程序为lex.exe',
         type: 'success',
@@ -451,7 +457,7 @@ function handleExecCode() {
         })
         return
     }
-    const proc = spawn("lex.exe", [inputCodePath.value], {})
+    const proc = spawn("./temp/lex.exe", [inputCodePath.value], {})
     proc.stdout.on('data', function (data) {
         showCode.value = true;
         showGraph.value = false;
@@ -472,7 +478,7 @@ function handleSaveCode() {
         })
     }
     let timestamp = (new Date()).valueOf();
-    let filename = timestamp + ".txt"
+    let filename = "temp/" + timestamp + ".txt"
     console.log(filename)
     fs.writeFile(filename, code.value, (err) => {
         if (err) {
